@@ -112,7 +112,8 @@ Boxplot of MPG vs. Transmission
 boxplot(mpg ~ am, xlab="Transmission (0 = Automatic, 1 = Manual)", ylab="MPG",
         main="Boxplot of MPG vs. Transmission")
         
-plot of chunk unnamed-chunk-10
+![boxplot_1](https://cloud.githubusercontent.com/assets/10902765/10301072/95ef5056-6bb3-11e5-95da-346d4d6aa522.PNG)
+
 2. Pair Graph of Motor Trend Car Road Tests
 
 pairs(mtcars, panel=panel.smooth, main="Pair Graph of Motor Trend Car Road Tests")
