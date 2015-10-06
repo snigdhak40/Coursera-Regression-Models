@@ -37,33 +37,49 @@ The following objects are masked from mtcars (pos = 3):
 am, carb, cyl, disp, drat, gear, hp, mpg, qsec, vs, wt
 
 The following object is masked from package:ggplot2:
-
 mpg
-Then, we do some basic exploratory data analyses. Please refer to the Appendix: Figures section for the plots. According to the box plot, we see that manual transmission yields higher values of MPG in general. And as for the pair graph, we can see some higher correlations between variables like "wt", "disp", "cyl" and "hp".
+
+Then, we do some basic exploratory data analyses. 
+Please refer to the Appendix: Figures section for the plots. 
+According to the box plot, we see that manual transmission yields higher values of MPG in general. 
+And as for the pair graph, we can see some higher correlations between variables like "wt", "disp", "cyl" and "hp".
 
 Inference
 
-At this step, we make the null hypothesis as the MPG of the automatic and manual transmissions are from the same population (assuming the MPG has a normal distribution). We use the two sample T-test to show it.
+At this step, we make the null hypothesis as the MPG of the automatic and manual transmissions are from the same population (assuming the MPG has a normal distribution). 
+We use the two sample T-test to show it.
 
 result <- t.test(mpg ~ am)
+
 result$p.value
+
 [1] 0.001373638
+
 result$estimate
+
 mean in group 0 mean in group 1 
  17.14737        24.39231
-Since the p-value is 0.00137, we reject our null hypothesis. So, the automatic and manual transmissions are from different populations. And the mean for MPG of manual transmitted cars is about 7 more than that of automatic transmitted cars.
+ 
+Since the p-value is 0.00137, we reject our null hypothesis. 
+So, the automatic and manual transmissions are from different populations. And the mean for MPG of manual transmitted cars is about 7 more than that of automatic transmitted cars.
+
 Regression Analysis
 
 First, we fit the full model as the following.
 
+
 fullModel <- lm(mpg ~ ., data=mtcars)
+
 summary(fullModel) 
 
+
 This model has the Residual standard error as 2.833 on 15 degrees of freedom. And the Adjusted R-squared value is 0.779, which means that the model can explain about 78% of the variance of the MPG variable. However, none of the coefficients are significant at 0.05 significant level.
+
 
 Then, we use backward selection to select some statistically significant variables.
 
 stepModel <- step(fullModel, k=log(nrow(mtcars)))
+
 summary(stepModel)
 
 This model is "mpg ~ wt + qsec + am". It has the Residual standard error as 2.459 on 28 degrees of freedom. And the Adjusted R-squared value is 0.8336, which means that the model can explain about 83% of the variance of the MPG variable. All of the coefficients are significant at 0.05 significant level.
