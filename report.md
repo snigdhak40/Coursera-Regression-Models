@@ -21,11 +21,17 @@ dim(mtcars)
 [1] 32 11
 
 mtcars$cyl <- as.factor(mtcars$cyl)
+
 mtcars$vs <- as.factor(mtcars$vs)
+
 mtcars$am <- factor(mtcars$am)
+
 mtcars$gear <- factor(mtcars$gear)
+
 mtcars$carb <- factor(mtcars$carb)
+
 attach(mtcars)
+
 The following objects are masked from mtcars (pos = 3):
 
 am, carb, cyl, disp, drat, gear, hp, mpg, qsec, vs, wt
