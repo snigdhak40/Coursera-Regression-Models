@@ -164,6 +164,7 @@ plot of chunk unnamed-chunk-11
 ggplot(mtcars, aes(x=wt, y=mpg, group=am, color=am, height=3, width=3)) + geom_point() +  
 scale_colour_discrete(labels=c("Automatic", "Manual")) + 
 xlab("weight") + ggtitle("Scatter Plot of MPG vs. Weight by Transmission")
+![scatterplot_2](https://cloud.githubusercontent.com/assets/10902765/10301362/846534d8-6bb6-11e5-929f-bdbb18bcc704.PNG)
 
 4. Residual Plots
 
