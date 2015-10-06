@@ -9,6 +9,7 @@ library(ggplot2)
 data(mtcars)
 mtcars[1:3, ] 
 Sample Data
+
                mpg cyl disp  hp drat    wt  qsec vs am gear carb
  Mazda RX4     21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
  
@@ -17,35 +18,37 @@ Sample Data
  Datsun 710    22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
  
 dim(mtcars)
-## [1] 32 11
+[1] 32 11
+
 mtcars$cyl <- as.factor(mtcars$cyl)
 mtcars$vs <- as.factor(mtcars$vs)
 mtcars$am <- factor(mtcars$am)
 mtcars$gear <- factor(mtcars$gear)
 mtcars$carb <- factor(mtcars$carb)
 attach(mtcars)
-##     The following objects are masked from mtcars (pos = 3):
+The following objects are masked from mtcars (pos = 3):
 
-##     am, carb, cyl, disp, drat, gear, hp, mpg, qsec, vs, wt
+am, carb, cyl, disp, drat, gear, hp, mpg, qsec, vs, wt
 
-##    The following object is masked from package:ggplot2:
+The following object is masked from package:ggplot2:
 
-##     mpg
-##     Then, we do some basic exploratory data analyses. Please refer to the Appendix: Figures section for the plots. According to the box plot, we see that manual transmission yields higher values of MPG in general. And as for the pair graph, we can see some higher correlations between variables like "wt", "disp", "cyl" and "hp".
-##     Inference
+mpg
+Then, we do some basic exploratory data analyses. Please refer to the Appendix: Figures section for the plots. According to the box plot, we see that manual transmission yields higher values of MPG in general. And as for the pair graph, we can see some higher correlations between variables like "wt", "disp", "cyl" and "hp".
 
-##     At this step, we make the null hypothesis as the MPG of the automatic and manual transmissions are from the same population (assuming the MPG has a normal distribution). We use the two sample T-test to show it.
+Inference
+
+At this step, we make the null hypothesis as the MPG of the automatic and manual transmissions are from the same population (assuming the MPG has a normal distribution). We use the two sample T-test to show it.
 
 result <- t.test(mpg ~ am)
 result$p.value
-## [1] 0.001373638
+[1] 0.001373638
 result$estimate
-## mean in group 0 mean in group 1 
-##        17.14737        24.39231
-##  Since the p-value is 0.00137, we reject our null hypothesis. So, the automatic and manual transmissions are from different populations. And the mean for MPG of manual transmitted cars is about 7 more than that of automatic transmitted cars.
-##  Regression Analysis
+mean in group 0 mean in group 1 
+ 17.14737        24.39231
+Since the p-value is 0.00137, we reject our null hypothesis. So, the automatic and manual transmissions are from different populations. And the mean for MPG of manual transmitted cars is about 7 more than that of automatic transmitted cars.
+Regression Analysis
 
-##  First, we fit the full model as the following.
+First, we fit the full model as the following.
 
 fullModel <- lm(mpg ~ ., data=mtcars)
 summary(fullModel) # results hidden
