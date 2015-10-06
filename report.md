@@ -111,13 +111,20 @@ We end up selecting the model with the highest Adjusted R-squared value, "mpg ~ 
 summary(amIntWtModel)$coef
 
              Estimate Std. Error   t value     Pr(>|t|)
+             
 (Intercept)  9.723053  5.8990407  1.648243 0.1108925394
-wt          -2.936531  0.6660253 -4.409038 0.0001488947
+
+wt          -2.936531  0.6660253 -4.409038 0.
+
 qsec         1.016974  0.2520152  4.035366 0.0004030165
+
 am1         14.079428  3.4352512  4.098515 0.0003408693
+
 wt:am1      -4.141376  1.1968119 -3.460340 0.0018085763
 
+
 Thus, the result shows that when "wt" (weight lb/1000) and "qsec" (1/4 mile time) remain constant, cars with manual transmission add 14.079 + (-4.141)*wt more MPG (miles per gallon) on average than cars with automatic transmission. That is, a manual transmitted car that weighs 2000 lbs have 5.797 more MPG than an automatic transmitted car that has both the same weight and 1/4 mile time.
+
 
 
 Residual Analysis and Diagnostics
@@ -140,24 +147,27 @@ Therefore, the above analyses meet all basic assumptions of linear regression an
 Appendix: Figures
 
 Boxplot of MPG vs. Transmission
+
 boxplot(mpg ~ am, xlab="Transmission (0 = Automatic, 1 = Manual)", ylab="MPG",
         main="Boxplot of MPG vs. Transmission")
+        
         
 ![boxplot_1](https://cloud.githubusercontent.com/assets/10902765/10301072/95ef5056-6bb3-11e5-95da-346d4d6aa522.PNG)
 
 2. Pair Graph of Motor Trend Car Road Tests
 
 pairs(mtcars, panel=panel.smooth, main="Pair Graph of Motor Trend Car Road Tests")
+
 plot of chunk unnamed-chunk-11
 3. Scatter Plot of MPG vs. Weight by Transmission
 
 ggplot(mtcars, aes(x=wt, y=mpg, group=am, color=am, height=3, width=3)) + geom_point() +  
 scale_colour_discrete(labels=c("Automatic", "Manual")) + 
 xlab("weight") + ggtitle("Scatter Plot of MPG vs. Weight by Transmission")
-plot of chunk unnamed-chunk-12
+
 4. Residual Plots
 
 par(mfrow = c(2, 2))
-plot(amIntWtModel)
-plot of chunk unnamed-chunk-13
+
+
 
