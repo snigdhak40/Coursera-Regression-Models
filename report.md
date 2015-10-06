@@ -170,6 +170,9 @@ xlab("weight") + ggtitle("Scatter Plot of MPG vs. Weight by Transmission")
 4. Residual Plots
 
 par(mfrow = c(2, 2))
+plot(amIntWtModel)
 
 
+
+![residualplots](https://cloud.githubusercontent.com/assets/10902765/10301412/2636b32c-6bb7-11e5-8365-c78431f8e289.PNG)
 
