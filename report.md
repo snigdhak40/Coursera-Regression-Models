@@ -102,7 +102,8 @@ Please refer to the Appendix: Figures section for the plots. According to the re
 As for the Dfbetas, the measure of how much an observation has effected the estimate of a regression coefficient, we get the following result:
 
 sum((abs(dfbetas(amIntWtModel)))>1)
-## [1] 0
+[1] 0
+
 Therefore, the above analyses meet all basic assumptions of linear regression and well answer the questions.
 
 Appendix: Figures
@@ -110,6 +111,7 @@ Appendix: Figures
 Boxplot of MPG vs. Transmission
 boxplot(mpg ~ am, xlab="Transmission (0 = Automatic, 1 = Manual)", ylab="MPG",
         main="Boxplot of MPG vs. Transmission")
+        
 plot of chunk unnamed-chunk-10
 2. Pair Graph of Motor Trend Car Road Tests
 
@@ -126,3 +128,4 @@ plot of chunk unnamed-chunk-12
 par(mfrow = c(2, 2))
 plot(amIntWtModel)
 plot of chunk unnamed-chunk-13
+
