@@ -158,7 +158,8 @@ boxplot(mpg ~ am, xlab="Transmission (0 = Automatic, 1 = Manual)", ylab="MPG",
 
 pairs(mtcars, panel=panel.smooth, main="Pair Graph of Motor Trend Car Road Tests")
 
-plot of chunk unnamed-chunk-11
+![scatterplot_1](https://cloud.githubusercontent.com/assets/10902765/10301319/29399e50-6bb6-11e5-821b-2d23095c8ce3.PNG)
+
 3. Scatter Plot of MPG vs. Weight by Transmission
 
 ggplot(mtcars, aes(x=wt, y=mpg, group=am, color=am, height=3, width=3)) + geom_point() +  
